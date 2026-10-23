@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry ♡</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0ed, #f4d9ff);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.popup {
+    width: 85%;
+    max-width: 350px;
+    background: rgba(255,255,255,0.9);
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px #d88bc855;
+    animation: appear 0.7s ease;
+    border: 2px solid white;
+}
+
+.heart {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    color: #e66b9b;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+button {
+    background: #f18bb4;
+    color: white;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e66b9b;
+    transform: scale(1.05);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.floating {
+    position: absolute;
+    bottom: -30px;
+    color: #f18bb4;
+    font-size: 22px;
+    animation: floatUp 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style></head><body><div class="popup">
+    <div class="heart">🥺💗</div><h1>I'm Sorry!</h1>
+
+<p>
+  اسف لاني تكلمت انجليزي♡<br>
+    ما كنت اقصد forgive me? 👉👈
+</p>
+
+<button onclick="forgive()">It's okay ♡</button>
+
+</div><script>
+function forgive() {
+    document.querySelector(".popup").innerHTML = `
+        <div class="heart">૮ ˶ᵔ ᵕ ᵔ˶ ა</div>
+        <h1>Yayyy! 💗</h1>
+        <p>Thank you for forgiving me!<br>You're so sweet uwu ♡</p>
+    `;
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.textContent = ["♡", "💗", "✧", "୨୧"][
+        Math.floor(Math.random() * 4)
+    ];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 500);
+</script></body>
+</html>
